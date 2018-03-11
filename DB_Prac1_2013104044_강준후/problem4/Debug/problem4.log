@@ -1,0 +1,6 @@
+﻿  problem4.cpp
+c:\users\kang jun hu\google 드라이브\4.junior_2nd_semester\database\db_prac1_2013104044_강준후\problem4\problem4.cpp(33): warning C4101: 'c1' :참조되지 않은 지역 변수입니다.
+c:\users\kang jun hu\google 드라이브\4.junior_2nd_semester\database\db_prac1_2013104044_강준후\problem4\problem4.cpp(33): warning C4101: 'c3' :참조되지 않은 지역 변수입니다.
+c:\users\kang jun hu\google 드라이브\4.junior_2nd_semester\database\db_prac1_2013104044_강준후\problem4\problem4.cpp(30): warning C4101: 's' :참조되지 않은 지역 변수입니다.
+c:\users\kang jun hu\google 드라이브\4.junior_2nd_semester\database\db_prac1_2013104044_강준후\problem4\problem4.cpp(33): warning C4101: 'c2' :참조되지 않은 지역 변수입니다.
+  problem4.vcxproj -> C:\Users\KANG JUN HU\Google 드라이브\4.Junior_2nd_semester\Database\DB_Prac1_2013104044_강준후\Debug\problem4.exe
