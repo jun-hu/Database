@@ -8,58 +8,57 @@
 
 using namespace std;
 
-struct Student
+struct Student //student 구조체 
 {
-	int id; char name[100];
+	int id; char name[6];
 	float gpa;
 };
 
 #define MAX_SIZE 100
-
 char inputString[MAX_SIZE];
-
-
 
 int  main() {
 
 	char* pch;
-	list<Student> sl;
-	ifstream inFile("input.txt");
-	//ofstream oup2("output.dat", ios::in | ios::out | ios::binary);
-	ofstream fout("output.bin", ios_base::binary | ios_base::app);
-	//oup2.seekp(0, ios::beg);
-
+	list<Student> sl; //student객체 넣을 리스트 만든다.
+	ifstream inFile("input.txt"); //읽어들일 파일 연다.
+	ofstream fout("output.bin",ios_base::binary | ios_base::trunc); 
+	//저장할 파일을 이진파일로 연다. app는 뒤에 붙인다는 플래그
 
 	while (!inFile.eof()) {
 
 		Student a;
 
-		//inFile.getline(inputString, 100);
 		if (!inFile.getline(inputString, 100))
 		{
 			break;
 		};
 
-		pch = strtok(inputString, "|");
+		pch = strtok(inputString, "|"); //처음에는 들어갈 문자열, 두번째는 특정문자
+		//string token함수로서 특정 문자를 기준으로 문자열을 잘라준다.
 		a.id = atoi(pch);
 		//inFile.getline(inputString, 100);
-		pch = strtok(NULL, "|");
+		pch = strtok(NULL, "|"); //해당 문자가 끝날 때까지 계속 null
 		strcpy_s(a.name, pch);
 		//inFile.getline(inputString, 100);
 		pch = strtok(NULL, "\n");
 		a.gpa = atof(pch);
 		sl.push_back(a);
+		cout << a.id << a.name << a.gpa << endl;
+		cout << "size:" << sizeof(Student) << endl;
 	}
 
 
 	list<Student>::iterator iter;
 	for (iter = sl.begin(); iter != sl.end(); iter++)
 	{
-		fout.write((char*)&(*iter), sizeof Student);
+		fout.write((char*)&(*iter), sizeof(Student));
 	}
 
-	//cout << (*iter).id << " " << (*iter).name << " " << (*iter).gpa << endl;
+	//fout.write((char*)&sl.begin(),sizeof(sl)
 
+	//cout << (*iter).id << " " << (*iter).name << " " << (*iter).gpa << endl;
+	inFile.close();
 	fout.close();
 
 

@@ -17,7 +17,6 @@ struct Student
 };
 
 #define MAX_SIZE 100
-
 char inputString[MAX_SIZE];
 
 
@@ -25,23 +24,28 @@ char inputString[MAX_SIZE];
 int  main() {
 
 	ifstream fin;
-	fin.open("../problem2/output.bin", ios_base::binary | ios_base::app);
+	fin.open("../problem2/output.dat", ios_base::binary | ios_base::app);
 
 	ofstream fout;
-	fout.open("output.txt");
+	fout.open("output.txt",ios::trunc);
 
 	char s[20];
 	Student a;
 
-	char c1; string str; char c2, c3;
+	char c3[2] = {};	char c1[4] = {}; char str[100] = {}; char c2[4] = {};
 	while (!fin.eof()) {
-		fin.read((char*)&a.id, sizeof(a.id));
-		fin.read((char*)a.name, sizeof(a.name));
-		fin.read((char*)&a.gpa, sizeof(a.gpa));
+		fin.read((char*)&c1, 4);
+		a.id = atoi(c1);
+		fin.read((char*)&str, 6);
+		strcpy(a.name, str);
+		fin.read((char*)&c3, 2);
+		fin.read((char*)&c2, 4);
+		a.gpa = atof(c2);
+		cout<< a.id << " " << a.name << " " << a.gpa << endl;
 		fout << a.id << " " << a.name << " " << a.gpa << endl;
 	}
 
-
+	fin.close();
 	fout.close();
 
 
