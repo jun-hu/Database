@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Generated-from: 1522386338700;type=2
+Bundle-ManifestVersion: 2
+Bundle-Name: upadmin.msg
+Bundle-SymbolicName: madmin.msg
+Bundle-Version: 5.1.204.v20120422
+Bundle-ClassPath: msg.jar,
+ lib/MessageBundle.jar
+Bundle-Activator: com.m.madmin.msg.MsgPlugin
+Bundle-Vendor: Tibero Co., Ltd
+Bundle-Localization: plugin
+Export-Package: com.m.madmin.msg,
+ com.tibero.util,
+ lib,
+ resource
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Eclipse-LazyStart: true

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 #include <algorithm>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +12,7 @@ using namespace std;
 
 struct Student
 {
-	int id; char name[100];
+	int id; char name[20];
 	float gpa;
 };
 
@@ -26,7 +26,7 @@ int  main() {
 
 	ifstream fin;
 	fin.open("../problem2/output.bin", ios_base::binary | ios_base::app);
-	list<Student> sl;
+	vector<Student> sl;
 	char s[20];
 	Student a;
 
@@ -40,11 +40,10 @@ int  main() {
 
 	string name;
 	cin >> name;
-	list<Student>::iterator it;
-	for (it = sl.begin(); it != sl.end(); it++)
+	
+	for (int i = 0 ; i < sl.size(); i++)
 	{
-		if ((*it).name == name) cout << (*it).id << " " << (*it).name << " " << (*it).gpa << endl;
+		if (name == sl.at(i).name) cout << sl.at(i).id << " " << sl.at(i).name << " " << sl.at(i).gpa << endl;
 	}
-
 	return 0;
 }

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 #include <algorithm>
 
 
@@ -10,7 +10,7 @@ using namespace std;
 
 struct Student //student 구조체 
 {
-	int id; char name[6];
+	int id; char name[20];
 	float gpa;
 };
 
@@ -20,7 +20,7 @@ char inputString[MAX_SIZE];
 int  main() {
 
 	char* pch;
-	list<Student> sl; //student객체 넣을 리스트 만든다.
+	vector<Student> sl; //student객체 넣을 리스트 만든다.
 	ifstream inFile("input.txt"); //읽어들일 파일 연다.
 	ofstream fout("output.bin",ios_base::binary | ios_base::trunc); 
 	//저장할 파일을 이진파일로 연다. app는 뒤에 붙인다는 플래그
@@ -49,10 +49,9 @@ int  main() {
 	}
 
 
-	list<Student>::iterator iter;
-	for (iter = sl.begin(); iter != sl.end(); iter++)
+	for (int i = 0; i < sl.size(); i++)
 	{
-		fout.write((char*)&(*iter), sizeof(Student));
+		fout.write((char*)&sl.at(i), sizeof(Student));
 	}
 
 	//fout.write((char*)&sl.begin(),sizeof(sl)

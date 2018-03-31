@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="madmin.msg"
+   name="upadmin.msg"
+   version="5.1.204.v20120422"
+   provider-name="Tibero Co., Ltd"
+   class="com.m.madmin.msg.MsgPlugin">
+
+   <runtime>
+	  <library name="msg.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/MessageBundle.jar">
+         <export
+               name="com.tibero.util.*">
+         </export>
+	  </library>
+   </runtime>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+   </requires>   
+</plugin>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="madmin.core"
+   name="upadmin.core"
+   version="5.1.141.v20120217"
+   provider-name="UpRightSoft Co., Ltd"
+   class="com.m.madmin.core.CorePlugin">
+
+   <runtime>
+	  <library name="core.jar">
+         <export name="*"/>
+      </library>	  
+      <library name="files/lib/log4j.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/toolcom.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="madmin.msg"/>
+   </requires>   
+</plugin>

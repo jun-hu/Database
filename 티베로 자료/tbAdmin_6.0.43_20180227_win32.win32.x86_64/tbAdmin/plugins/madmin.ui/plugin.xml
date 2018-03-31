@@ -1,0 +1,1610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="madmin.ui"
+   name="madmin.ui"
+   version="5.1.141.v20120420"
+   provider-name="%providerName"
+   class="com.m.madmin.ui.UIPlugin">
+
+   <runtime>
+      <library name="ui.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/oro.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/poi-3.10.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/poi-ooxml-3.10.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/poi-ooxml-schemas-3.10.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/dom4j-1.6.1.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/xmlbeans-2.3.0.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/xmlbeans-jsr173_1.0_api.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/jcommon-1.0.15.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/jfreechart-1.0.12.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/jfreechart-1.0.12-swt.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/commons-net-2.0.jar">
+         <export name="*"/>
+      </library>
+      <library name="files/lib/text-3.2.1-r321_v20060810.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.search"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.help.base"/>
+      <import plugin="org.eclipse.help.ui"/>
+      <import plugin="org.eclipse.help.webapp"/>
+      <import plugin="org.eclipse.help.appserver"/>
+      <import plugin="madmin.core" version="5.1.141"/>
+      <import plugin="madmin.msg" version="5.1.204"/>
+   </requires>
+   
+   <extension
+         id="product"
+         name="mAdmin"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="madmin.ui.MAdminApplication"
+            description="%productDescription"
+            name="mAdmin">
+         <property
+               name="appName"
+               value="mAdmin"/>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini"/>
+         <property
+               name="aboutImage"
+               value="icons/Tibero_RDBMS_About.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText"/>
+        
+         <property
+               name="windowImages"
+               value="icons/developer_perspective.gif">
+         </property>
+      </product>
+   </extension>    
+   <extension
+        id="MAdminApplication" point="org.eclipse.core.runtime.applications">
+        <application>
+            <run class="com.m.madmin.ui.MAdminApplication">
+            </run>
+        </application>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.perspectives">
+     <perspective
+           class="com.m.madmin.ui.perspectives.DeveloperPerspective"
+           fixed="false"
+           icon="icons/developer_perspective.png"
+           id="com.m.madmin.ui.perspectives.DeveloperPerspective"
+           name="%Perspectives.DeveloperPerspective"/>
+     <perspective
+           class="com.m.madmin.ui.perspectives.DBAPerspective"
+           icon="icons/dba_perspective.png"
+           id="com.m.madmin.ui.perspectives.DBAPerspective"
+           name="%Perspectives.DBAPerspective"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%Views.developer"
+            id="developerViews">
+      </category>       
+      <view
+            icon="icons/icon_16_full.gif"
+            name="%Views.WelcomeView"
+            category="developerViews"
+            class="com.m.madmin.ui.views.WelcomeView"
+            id="com.m.madmin.ui.views.WelcomeView"
+            allowMultiple="false">
+      </view>
+      <view
+            allowMultiple="true"
+            category="developerViews"
+            class="com.m.madmin.ui.views.SQLEditorView"
+            icon="icons/sql_editor.png"
+            id="com.m.madmin.ui.views.SQLEditorView"
+            name="%Views.SQLEditorView">
+      </view>     
+      <view
+            name="%Views.ShemaBrowser"
+            icon="icons/schema_browser.png"
+            category="developerViews"
+            class="com.m.madmin.ui.views.SchemaBrowser"
+            id="com.m.madmin.ui.views.SchemaBrowser"
+            allowMultiple="true">
+      </view>
+            <view
+            name="%Views.SchemaTreeBrowser"
+            icon="icons/schema_tree_browser.png"
+            category="developerViews"
+            class="com.m.madmin.ui.views.SchemaTreeBrowser"
+            id="com.m.madmin.ui.views.SchemaTreeBrowser"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.PSMEditor"
+            icon="icons/psm_editor.png"
+            category="developerViews"
+            class="com.m.madmin.ui.views.oracle.PSMEditor"
+            id="com.m.madmin.ui.views.oracle.PSMEditor"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.PSMEditor"
+            icon="icons/psm_editor.png"
+            category="developerViews"
+            class="com.m.madmin.ui.views.tibero.PSMEditor"
+            id="com.m.madmin.ui.views.tibero.PSMEditor"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.SessionManager"
+            icon="icons/session_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.oracle.SessionManager"
+            id="com.m.madmin.ui.views.oracle.SessionManager"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.SessionManager"
+            icon="icons/session_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.tibero.tb2.SessionManager"
+            id="com.m.madmin.ui.views.tibero.tb2.SessionManager"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.SessionManager"
+            icon="icons/session_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.tibero.tb3.SessionManager"
+            id="com.m.madmin.ui.views.tibero.tb3.SessionManager"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.SessionManager"
+            icon="icons/session_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.tibero.tac.SessionManager"
+            id="com.m.madmin.ui.views.tibero.tac.SessionManager"
+            allowMultiple="true">
+      </view>
+      <view
+            name="%Views.InitParamManager"
+            icon="icons/parameter_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.oracle.InitParamManager"
+            id="com.m.madmin.ui.views.oracle.InitParamManager"
+            allowMultiple="true">
+      </view>
+            <view
+            name="%Views.InitParamManager"
+            icon="icons/parameter_manager.png"
+            category="dbaViews"
+            class="com.m.madmin.ui.views.tibero.InitParamManager"
+            id="com.m.madmin.ui.views.tibero.InitParamManager"
+            allowMultiple="true">
+      </view>
+            <view
+                  allowMultiple="true"
+                  category="developerViews"
+                  class="com.m.madmin.ui.views.SchemaObjectDetailView"
+                  icon="icons/schema_object_detail.png"
+                  id="com.m.madmin.ui.views.SchemaObjectDetailView"
+                  name="%Views.SchemaObjectDetailView"/>
+            <view
+                  allowMultiple="false"
+                  category="developerViews"
+                  class="com.m.madmin.ui.views.TemplateView"
+                  icon="icons/template_view.png"
+                  id="com.m.madmin.ui.views.TemplateView"
+                  name="%Views.TemplateView"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.InstanceMonitorView"
+                  icon="icons/instance_monitor.png"
+                  id="com.m.madmin.ui.views.InstanceMonitorView"
+                  name="%Views.InstanceMonitor"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.ExtentsViewerView"
+                  icon="icons/sql_dbms_output.png"
+                  id="com.m.madmin.ui.views.ExtentsViewerView"
+                  name="Extents Viewer"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.DatabaseInfoView"
+                  icon="icons/database_information.png"
+                  id="com.m.madmin.ui.views.DatabaseInfoView"
+                  name="Database Information"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.TablespaceManagerView"
+                  icon="icons/tablespace_manager.png"
+                  id="com.m.madmin.ui.views.TablespaceManagerView"
+                  name="Tablespace Manager"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.dba.sql.SQLMonitorView"
+                  icon="icons/sql_monitor.png"
+                  id="com.m.madmin.ui.views.dba.sql.SQLMonitorView"
+                  name="%Views.SQLMonitorView"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.dba.transaction.TransactionMonitorView"
+                  icon="icons/transaction_monitor.png"
+                  id="com.m.madmin.ui.views.dba.transaction.TransactionMonitorView"
+                  name="%Views.TransactionMonitorView"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.TraceToolView"
+                  icon="icons/trace_tool.png"
+                  id="com.m.madmin.ui.views.TraceToolView"
+                  name="%Views.TraceToolView"/>
+
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.dba.analyze.AnalyzeManagerView"
+                  icon="icons/analyze_manager.png"
+                  id="com.m.madmin.ui.views.dba.analyze.AnalyzeManagerView"
+                  name="%Views.AnalyzeManagerView"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.dba.security.SecurityManagerView"
+                  icon="icons/security_manager.png"
+                  id="com.m.madmin.ui.views.dba.security.SecurityManagerView"
+                  name="%Views.SecurityManager"/>
+            <view
+                  allowMultiple="true"
+                  category="dbaViews"
+                  class="com.m.madmin.ui.views.dba.graph.GraphAndReportView"
+                  icon="icons/view_graph_and_report.png"
+                  id="com.m.madmin.ui.views.dba.graph.GraphAndReportView"
+                  name="%Views.GraphAndReportView"/>
+            <view
+                  allowMultiple="false"
+                  category="developerViews"
+                  class="com.m.madmin.ui.history.SQLHistoryView"
+                  icon="icons/history.png"
+                  id="com.m.madmin.ui.history.SQLHistoryView"
+                  name="%Views.SQLHistoryView"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="%PreferencePageJDBCDriver.name"
+            class="com.m.madmin.ui.preference.JDBCDriverPreferencePage"
+            id="com.m.madmin.ui.preference.JDBCDriverPreferencePage">
+      </page>
+      <page
+            name="%PreferencePageEditor.name"
+            class="com.m.madmin.ui.preference.EditorPreferencePage"
+            id="com.m.madmin.ui.preference.EditorPreferencePage">
+      </page>
+      <page
+            name="%PreferencePageTableEditor.name"
+            category="com.m.madmin.ui.preference.EditorPreferencePage"
+            class="com.m.madmin.ui.editor.table.TableEditorPreferencePage"
+            id="com.m.madmin.ui.editor.table.TableEditorPreferencePage">
+      </page>
+      <page
+            name="%PreferencePageHomeDir.name"
+            class="com.m.madmin.ui.preference.HomeDirPreferencePage"
+            id="com.m.madmin.ui.preference.HomeDirPreferencePage">
+      </page>
+      <page
+            name="%PreferencePageDataFormat.name"
+            class="com.m.madmin.ui.preference.DataFormatPreferencePage"
+            id="com.m.madmin.ui.preference.DataFormatPreferencePage">
+      </page>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.themes">
+      <themeElementCategory
+            id="com.m.madmin.ui.presentation"
+            label="mAdmin"/>
+      <themeElementCategory
+            id="com.m.madmin.ui.sqleditor.presentation"
+            label="SQL Editor"
+            parentId="com.m.madmin.ui.presentation"/>      
+      <fontDefinition
+            categoryId="com.m.madmin.ui.sqleditor.presentation"
+            defaultsTo="org.eclipse.jface.textfont"
+            id="com.m.madmin.ui.sqleditor.textfont"
+            label="SQL Editor Text font">
+         <description>
+         SQL Editor Text font is used by SQL Editor.
+         </description>
+      </fontDefinition>      
+      <fontDefinition
+            categoryId="com.m.madmin.ui.sqleditor.presentation"
+            defaultsTo="org.eclipse.jface.defaultfont"
+            id="com.m.madmin.ui.datagrid.textfont"
+            label="Data Grid Text font">
+         <description>
+         Data Grid Text font is used by both Data Grid and Execution Plan of SQL Editor.
+         </description>
+      </fontDefinition>
+      <fontDefinition
+            categoryId="com.m.madmin.ui.sqleditor.presentation"
+            defaultsTo="org.eclipse.jface.textfont"
+            id="com.m.madmin.ui.linenumber.textfont"
+            label="Line Number Text font"
+            >
+         <description>
+         Line Number Text font is used by current line number of SQL Editor.
+         </description>
+      </fontDefinition>
+      <themeElementCategory
+            id="com.m.madmin.ui.basic.presentation"
+            label="Basic"
+            parentId="com.m.madmin.ui.presentation"/>
+      <fontDefinition
+            categoryId="com.m.madmin.ui.basic.presentation"
+            defaultsTo="org.eclipse.jface.viewerfont"
+            id="com.m.madmin.ui.viewer.textfont"
+            label="Viewer font">
+         <description>
+         Viewer Text font is used by Schema Browser, Session Manager and Parameter Manager.
+         </description>
+      </fontDefinition>
+      <fontDefinition
+            categoryId="com.m.madmin.ui.basic.presentation"
+            defaultsTo="org.eclipse.jface.dialogfont"
+            id="com.m.madmin.ui.dialog.textfont"
+            label="Dialog font">            
+         <description>
+         Dialog font is the fonts for widgets in dialogs.
+         </description>
+      </fontDefinition>            
+   </extension>
+   
+    <extension point="org.eclipse.ui.commands">
+    
+    <!--
+        <activeKeyConfiguration
+            value="org.eclipse.ui.defaultAcceleratorConfiguration">
+        </activeKeyConfiguration>
+    -->
+        <category
+            id="com.m.madmin.ui.category.user"
+            name="madmin command category"
+            description="madmin command category"/>
+            
+        <command
+            categoryId="com.m.madmin.ui.category.user"
+            id="com.m.madmin.ui.actions.NewConnectionAction"
+            name="New Connection"
+            description="New Connection" />
+    <command
+        name="Close Connection"
+        description="Close Connection"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.CloseConnectionAction">
+    </command>
+    <command
+        name="Close All Connection"
+        description="Close All Connection"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.CloseAllConnectionAction">
+    </command>
+    <command
+        name="Change Password"
+        description="Change Password"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.ChangePasswordAction">
+    </command>
+    <command
+       name="Session Information"
+       description="Session Information"
+       categoryId="com.m.madmin.ui.category.user"       
+       id="com.m.madmin.ui.actions.SessionInformationAction">   
+    </command>
+    <command
+        name="Open File Action"
+        description="Open File Action"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.OpenSQLFileAction">
+    </command>
+    <command
+        name="Save File Action"
+        description="Save File Action"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.SaveSQLFileAction">
+    </command>
+    <command
+        name="Save As File Action"
+        description="Save As File Action"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.SaveAsSQLFileAction">
+    </command>
+    <command
+       name="Sava All File Action"
+       description="Sava All File Action"
+       categoryId="com.m.madmin.ui.category.user"
+       id="com.m.madmin.ui.actions.SaveAllSQLFileAction">
+    </command>
+    <command
+       name="Close All Tab Action"
+       description="Close All Tab Action"
+       categoryId="com.m.madmin.ui.category.user"       
+       id="com.m.madmin.ui.actions.CloseAllTabAction">
+    </command>
+
+
+    <command
+      name="Print.name"
+      description="Print.description"    
+      categoryId="org.eclipse.ui.category.file"
+      id="org.eclipse.ui.file.print">
+    </command>   
+    
+    <command
+        name="Undo"
+        description="Undo"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.undo">
+    </command>
+    <command
+        name="Redo"
+        description="Redo"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.redo">
+    </command>
+    
+    <command
+        name="Cut"
+        description="Cut"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.cut">
+    </command>
+    
+    <command
+        name="Copy"
+        description="Copy"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.copy">
+    </command>
+    <command
+        name="Paste"
+        description="Paste"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.paste">
+    </command>
+    <command
+        name="Delete"
+        description="Delete"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.delete">
+    </command>
+    <command
+        name="Select All"
+        description="Select All"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.selectAll">
+    </command>
+    <command
+        name="Find and Replace"
+        description="Find and Replace"
+        categoryId="com.m.madmin.ui.category.user"
+        id="org.eclipse.ui.edit.findReplace">
+    </command>
+    <command
+       name="Match Bracket"
+       description="Match Bracket"       
+       categoryId="com.m.madmin.ui.category.user"
+       id="org.eclipse.ui.edit.matchBracket">      
+    </command>
+    <command
+        name="SQL Editor"
+        description="SQL Editor"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.OpenSQLEditorViewAction">
+    </command>
+    <command
+        name="PSM Editor"
+        description="PSM Editor"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.OpenPSMViewAction">
+    </command>
+    <command
+        name="Schema Browser"
+        description="Schema Browser"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.OpenSchemaBrowserViewAction">
+    </command>
+    <command
+        name="Session Manager"
+        description="Session Manager"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.OpenSessionMgrViewAction">
+    </command>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Instance Monitor"
+       id="com.m.madmin.ui.actions.OpenInstanceMonitorViewAction"
+       name="Instance Monitor"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Extents Viewer"
+       id="com.m.madmin.ui.actions.OpenExtentsViewerAction"
+       name="Extents Viewer"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Database Info"
+       id="com.m.madmin.ui.actions.OpenDatabaseInfoViewAction"
+       name="Database Info"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Tablespace Manager"
+       id="com.m.madmin.ui.actions.OpenTablespaceManagerViewAction"
+       name="Tablespace Manager"/>
+    <command
+        name="Commit"
+        description="Commit"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.CommitAction">
+    </command>
+    <command
+        name="Rollback"
+        description="Rollback"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.actions.RollbackAction">
+    </command>
+    <command
+        name="Execute SQL"
+        description="Execute SQL"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.editors.SQLEditorToolBar.run">
+    </command>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Run All From Cursor"
+       id="com.m.madmin.ui.editors.SQLEditorToolBar.runAllFromCursor"
+       name="Run All From Cursor"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Run Step"
+       id="com.m.madmin.ui.views.SQLEditorView.selectNextOneAndRun"
+       name="Run Step"/>
+    <!-- FIXME - RunAndEdit - 78041
+    <command
+        name="Execute SQL and Edit Result Cell"
+        description="Execute SQL and Edit Result Cell"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.editors.SQLEditorToolBar.runAndEdit">
+    </command>
+    -->
+    <command
+        name="Select One Statement and Execute SQL"
+        description="Select One Statement and Execute SQL"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.SQLEditorView.selectOneAndRun">
+    </command>
+    <command
+       categoryId="com.m.madmin.ui.category.user"
+       description="Execution Plan for SQL"
+       id="com.m.madmin.ui.editors.SQLEditorToolBar.showPlan"
+       name="Execution Plan for SQL">
+    </command>
+        <command
+            categoryId = "com.m.madmin.ui.category.user"
+            id = "com.m.madmin.ui.views.SQLEditorView.clearQueryResultOutput"
+            name = "Clear Query Result Output"
+            description = "Clear DBMS Output Winow before Query" />
+        <command
+            categoryId = "com.m.madmin.ui.category.user"
+            id = "com.m.madmin.ui.views.SQLEditorView.appendQueryResult"
+            name = "Append Query Result" 
+            description = "Append Query Result Tab" />
+            
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.IndentAction"
+       description="Increase Indent"
+       id="com.m.madmin.ui.views.SQLEditorView.indent"
+       name="Increase Indent"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.UnindentAction"
+       description="Decrease Indent"
+       id="com.m.madmin.ui.views.SQLEditorView.unindent"
+       name="Decrease Indent"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.CommentAction"
+       description="Comment"
+       id="com.m.madmin.ui.views.SQLEditorView.comment"
+       name="Comment"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.UncommentAction"
+       description="Uncomment"
+       id="com.m.madmin.ui.views.SQLEditorView.uncomment"
+       name="Uncomment"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.LowerCaseAction"
+       description="Lower Case"
+       id="com.m.madmin.ui.views.SQLEditorView.lowercase"
+       name="Lower Case"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.UpperCaseAction"
+       description="Upper Case"
+       id="com.m.madmin.ui.views.SQLEditorView.uppercase"
+       name="Upper Case"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.CapitalizeAction"
+       description="Capitalize"
+       id="com.m.madmin.ui.views.SQLEditorView.capitalize"
+       name="Capitalize"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.SentencizeAction"
+       description="Sentencize"
+       id="com.m.madmin.ui.views.SQLEditorView.sentencize"
+       name="Sentencize"/>
+ <command
+       categoryId="com.m.madmin.ui.category.user"
+       defaultHandler="com.m.madmin.ui.sqleditor.action.InvertCaseAction"
+       description="Invert Case"
+       id="com.m.madmin.ui.views.SQLEditorView.invertcase"
+       name="Invert Case"/>
+       
+    <command
+        name="PSM compile"
+        description="PSM compile"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.compile">
+    </command>
+    <command
+        name="PSM execute"
+        description="PSM execute"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.execute">
+    </command>
+       <command
+        name="PSM debug"
+        description="PSM debug"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.debug">
+    </command>
+        <command
+        name="Terminate PSM debug"
+        description="isconnect PSM debug"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.debugTerminate">
+    </command>
+    <command
+        name="Open Template View"
+        description="Open Template View"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.templateView">
+    </command>
+    <command
+        name="Breakpoints Toggle"
+        description="Breakpoints Toggle"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.breakpointsToggle">
+    </command>
+    <command
+        name="Resume"
+        description="Resume"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.stepDefault">
+    </command>
+    <command
+        name="Step Into"
+        description="Step Into"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.stepInto">
+    </command>
+    <command
+        name="Step Over"
+        description="Step Over"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.stepOver">
+    </command>
+    <command
+        name="Step Return"
+        description="Step Return"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.stepReturn">
+    </command>
+    <command
+        name="Horizontal Toggle for PSM Editor"
+        description="Horizontal Toggle for PSM Editor"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.hTogglePane">
+    </command>
+    <command
+        name="Vertical Toggle for PSM Editor"
+        description="Vertical Toggle for PSM Editor"
+        categoryId="com.m.madmin.ui.category.user"
+        id="com.m.madmin.ui.views.PSMEditor.vTogglePane">
+    </command>
+<!--    <command
+            name="Show Key Assist"
+            description="Show Key Assist"
+            categoryId="org.eclipse.ui.category.window"
+            id="org.eclipse.ui.window.showKeyAssist"
+            defaultHandler="org.eclipse.ui.internal.handlers.ShowKeyAssistHandler" /> 
+-->
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Schema Tree Browser"
+           id="com.m.madmin.ui.actions.OpenSchemaTreeBrowserViewAction"
+           name="Schema Tree Browser"/>
+        <command
+            name="Initial Parameter Manager"
+            description="Initial Parameter Manager"
+            categoryId="com.m.madmin.ui.category.user"
+            id="com.m.madmin.ui.actions.OpenInitParamMgrViewAction">
+        </command>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="ExpImp Dialog"
+           id="com.m.madmin.ui.actions.OpenExportToolDialogAction"
+           name="Export Dialog"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="ExpImp Dialog"
+           id="com.m.madmin.ui.actions.OpenImportToolDialogAction"
+           name="Import Dialog"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="ExpImp Dialog"
+           id="com.m.madmin.ui.actions.OpenExpImpToolDialogAction"
+           name="ExpImp Dialog"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Set BookMarker"
+           id="com.m.madmin.ui.actions.SetMarkerAction"
+           name="Set BookMarker"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Goto BookMarker"
+           id="com.m.madmin.ui.actions.GotoMarkerAction"
+           name="Goto BookMarker"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           defaultHandler="com.m.madmin.ui.sqleditor.action.ClearAllNamedMarkersAction"
+           description="Clear All Named BookMarkers"
+           id="com.m.madmin.ui.views.SQLEditor.clearAllNamedMarkers"
+           name="Clear All Named BookMarkers"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Maximize SQL"
+           id="com.m.madmin.ui.actions.SetSashFormAction1"
+           name="Maximize SQL"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Maximize Result"
+           id="com.m.madmin.ui.actions.SetSashFormAction2"
+           name="Maximize Result"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Split Pane Evenly"
+           id="com.m.madmin.ui.actions.SetSashFormAction3"
+           name="Split Pane Evenly"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Goto Next Tab"
+           id="com.m.madmin.ui.actions.GotoTabAction1"
+           name="Goto Next Tab"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Goto Previous Tab"
+           id="com.m.madmin.ui.actions.GotoTabAction2"
+           name="Goto Previous Tab"/>
+     <command
+        categoryId="com.m.madmin.ui.category.user"
+        defaultHandler="com.m.madmin.ui.actions.OpenSQLMonitorViewAction"
+        description="SQL Monitor"
+        id="com.m.madmin.ui.actions.OpenSQLMonitorViewAction"
+        name="SQL Monitor"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show Transaction Monitor"
+           id="com.m.madmin.ui.actions.OpenTransactionMonitorViewAction"
+           name="Transaction Monitor"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show Analyze Manager"
+           id="com.m.madmin.ui.actions.OpenAnalyzeManagerViewAction"
+           name="Analyze Manager"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show Graph and Result"
+           id="com.m.madmin.ui.actions.OpenGraphAndReportViewAction"
+           name="Graph and Result"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show Template"
+           id="com.m.madmin.ui.views.SQLEditorToolBar.templateView"
+           name="Template"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show SQL History"
+           id="com.m.madmin.ui.views.SQLEditorToolBar.sqlHistoryView"
+           name="SQL History"/>
+     <command
+           categoryId="com.m.madmin.ui.category.user"
+           description="Show Current Plan"
+           id="com.m.madmin.ui.views.SQLEditorView.selectOneAndPlan"
+           name="Current Plan"/>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        defaultHandler="com.m.madmin.ui.actions.CopytoNewTabAction"
+        description="Copy to New Tab"
+        id="com.m.madmin.ui.actions.CopyToNewTabAction"
+        name="Copy to New Tab">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Refresh Tablespace Manager View"
+        id="com.m.madmin.ui.views.TablespaceManagerView.refresh"
+        name="Refresh Tablespace Manager View">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Create Tablespace"
+        id="com.m.madmin.ui.views.TablespaceManagerView.create"
+        name="Create Tablespace">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Edit Tablespace"
+        id="com.m.madmin.ui.views.TablespaceManagerView.edit"
+        name="Edit Tablespace">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Drop Tablespace"
+        id="com.m.madmin.ui.views.TablespaceManagerView.drop"
+        name="Drop Tablespace">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Refresh Database Info View"
+        id="com.m.madmin.ui.views.DatabaseInfoView.refresh"
+        name="Refresh Database Info View">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Describe"
+        id="com.m.madmin.ui.views.SchemaTreeBrowser.describe"
+        name="Describe">
+  </command>
+  <command
+        categoryId="com.m.madmin.ui.category.user"
+        description="Select One Statement and Execute SQL In Block"
+        id="com.m.madmin.ui.views.SQLEditorView.selectOneAndRunInBlock"
+        name="%Command.SelectOneStatementandExecuteSQLInBlock">
+  </command>
+   </extension>   
+   
+   <extension point="org.eclipse.ui.bindings">
+      <scheme
+            name="mAdmin Key Binding"
+            description="mAdmin Key Binding"
+            id="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </scheme>      
+      
+      <key
+      sequence="Ctrl+N"
+      commandId="com.m.madmin.ui.actions.NewConnectionAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+
+      <key
+        commandId="org.eclipse.ui.file.print"
+        sequence="Ctrl+P"
+        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      
+      <key
+      sequence="Ctrl+E"
+      commandId="com.m.madmin.ui.actions.CloseConnectionAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+E"
+      commandId="com.m.madmin.ui.actions.CloseAllConnectionAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key> 
+      <key
+      sequence="Ctrl+O"
+      commandId="com.m.madmin.ui.actions.OpenSQLFileAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      
+      <key
+      sequence="Ctrl+S"
+      commandId="com.m.madmin.ui.actions.SaveSQLFileAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      
+      <key
+          commandId="org.eclipse.ui.edit.undo"
+          sequence="Ctrl+Z"      
+          schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+
+      <key
+          commandId="org.eclipse.ui.edit.redo"
+          sequence="Ctrl+Y"
+          schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+             
+      <key
+      sequence="Ctrl+X"
+      commandId="org.eclipse.ui.edit.cut"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      
+      <key
+      sequence="Ctrl+C"
+      commandId="org.eclipse.ui.edit.copy"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+V"
+      commandId="org.eclipse.ui.edit.paste"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Delete"
+      commandId="org.eclipse.ui.edit.delete"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+A"
+      commandId="org.eclipse.ui.edit.selectAll"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+F"
+      commandId="org.eclipse.ui.edit.findReplace"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Alt+S"
+      commandId="com.m.madmin.ui.actions.OpenSQLEditorViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Alt+P"
+      commandId="com.m.madmin.ui.actions.OpenPSMViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Alt+C"
+      commandId="com.m.madmin.ui.actions.OpenSchemaBrowserViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="com.m.madmin.ui.actions.OpenSchemaTreeBrowserViewAction"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+T"/>
+      <key
+      sequence="Alt+O"
+      commandId="com.m.madmin.ui.actions.OpenSessionMgrViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Alt+I"
+      commandId="com.m.madmin.ui.actions.OpenInitParamMgrViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+   <key
+         commandId="com.m.madmin.ui.actions.OpenExtentsViewerAction"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Alt+X"/>
+   <key
+         commandId="com.m.madmin.ui.actions.OpenDatabaseInfoViewAction"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Alt+A"/>
+   <key
+         commandId="com.m.madmin.ui.actions.OpenTablespaceManagerViewAction"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Alt+M"/>
+      <key
+      sequence="Alt+R"
+      commandId="com.m.madmin.ui.actions.OpenInstanceMonitorViewAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+C"
+      commandId="com.m.madmin.ui.actions.CommitAction"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+   <key
+         commandId="com.m.madmin.ui.actions.RollbackAction"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Shift+R"/>
+      <key
+      sequence="F5"
+      commandId="com.m.madmin.ui.editors.SQLEditorToolBar.run"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+   <key
+         commandId="com.m.madmin.ui.editors.SQLEditorToolBar.runAllFromCursor"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+["/>
+      <key
+      sequence="Ctrl+Enter"
+      commandId="com.m.madmin.ui.views.SQLEditorView.selectOneAndRun"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.selectNextOneAndRun"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+]"/>
+      <key
+        sequence = "Ctrl+,"
+        commandId = "com.m.madmin.ui.views.SQLEditorView.clearQueryResultOutput"
+        schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+        sequence = "Ctrl+."
+        commandId = "com.m.madmin.ui.views.SQLEditorView.appendQueryResult"
+        schemeId = "com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+         commandId="com.m.madmin.ui.editors.SQLEditorToolBar.showPlan"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="F7">
+      </key>
+      <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.unindent"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Shift+Tab"/>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.indent"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Tab"/>
+   
+   <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.comment"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+-"/>
+   <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.comment"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Numpad_Subtract"/>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.uncomment"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Shift+-"/>         
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.uncomment"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Shift+Numpad_Subtract"/>
+   <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.lowercase"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+U"/>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.uppercase"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Shift+U"/>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.capitalize"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+Shift+A"/>
+   <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.sentencize"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+S"/>
+   <key
+         commandId="com.m.madmin.ui.views.SQLEditorView.invertcase"
+         schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+         sequence="Ctrl+I"/>
+      <key
+      sequence="Ctrl+Shift+P"
+      commandId="com.m.madmin.ui.views.PSMEditor.compile"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+O"
+      commandId="com.m.madmin.ui.views.PSMEditor.execute"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+D"
+      commandId="com.m.madmin.ui.views.PSMEditor.debug"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+T"
+      commandId="com.m.madmin.ui.views.PSMEditor.debugTerminate"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="F8"
+      commandId="com.m.madmin.ui.views.PSMEditor.stepDefault"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="F6"
+      commandId="com.m.madmin.ui.views.PSMEditor.stepOver"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+G"
+      commandId="com.m.madmin.ui.views.PSMEditor.vTogglePane"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+H"
+      commandId="com.m.madmin.ui.views.PSMEditor.hTogglePane"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+      sequence="Ctrl+Shift+L"
+      commandId="org.eclipse.ui.window.showKeyAssist"
+      schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="com.m.madmin.ui.actions.SetSashFormAction1"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+ARROW_DOWN"/>
+      <key
+            commandId="com.m.madmin.ui.actions.SetSashFormAction2"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+ARROW_UP"/>
+      <key
+            commandId="com.m.madmin.ui.actions.SetSashFormAction3"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+ARROW_RIGHT"/>
+      <key
+            commandId="com.m.madmin.ui.actions.GotoTabAction1"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="F4"/>
+      <key
+            commandId="com.m.madmin.ui.actions.GotoTabAction2"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="SHIFT+F4"/>
+      <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.selectOneAndPlan"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+F7"/>
+      <key
+            commandId="com.m.madmin.ui.views.SchemaTreeBrowser.describe"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="F9">
+      </key>
+      <key
+            commandId="com.m.madmin.ui.views.SQLEditorView.selectOneAndRunInBlock"
+            schemeId="com.m.madmin.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+Enter">
+      </key>
+   </extension>
+<!-- added by dream -->
+<!-- Commands  -->
+  <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            name="%SQLEditorScope.name"
+            description="%SQLEditorScope.description"
+            parentId="org.eclipse.ui.contexts.window"
+            id="com.m.madmin.ui.sqlScope">
+      </context>
+      <context
+            name="%QueryResultScope.name"
+            description="%QueryResultScope.description"
+            parentId="org.eclipse.ui.contexts.window"
+            id="com.m.madmin.ui.queryResultScope">
+      </context>
+      <context
+            name="%TableEditorScope.name"
+            description="%TableEditorScope.description"
+            parentId="com.m.madmin.ui.queryResultScope"
+            id="madmin.ui.tableScope">
+      </context>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.commands">
+      <activeKeyConfiguration
+            value="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </activeKeyConfiguration>
+      <category
+            name="%CmdCategory.name"
+            description="%CmdCategory.description"
+            id="com.m.madmin.ui.category">
+      </category>
+      <command
+            name="%OpenTableCmd.name"
+            description="%OpenTableCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.OpenTable">
+      </command>
+      <keyBinding
+            string="Ctrl+T"
+            scope="org.eclipse.ui.globalScope"
+            command="com.m.madmin.ui.OpenTable"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ConfigureConnectionCmd.name"
+            description="%ConfigureConnectionCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.ConfigureConnections">
+      </command>
+      <keyBinding
+            string="Ctrl+Shift+C"
+            scope="org.eclipse.ui.globalScope"
+            command="com.m.madmin.ui.ConfigureConnections"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ConditionEditorCmd.name"
+            description="%ConditionEditorCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.editcondition">
+      </command>
+      <keyBinding
+            string="Ctrl+Shift+E"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.editcondition"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%RefreshEditorCmd.name"
+            description="%RefreshEditorCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.refresh">
+      </command>
+      <keyBinding
+            string="F5"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.refresh"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%CancelEditorCmd.name"
+            description="%CancelEditorCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.cancel">
+      </command>
+      <keyBinding
+            string="ESC"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.cancel"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%EditModeCmd.name"
+            description="%EditModeCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.editmode">
+      </command>
+      <keyBinding
+            string="F2"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.editmode"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%StepUpCmd.name"
+            description="%StepUpCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.up">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+ARROW_UP"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.up"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%StepDownCmd.name"
+            description="%StepDownCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.down">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+ARROW_DOWN"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.down"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%StepLeftCmd.name"
+            description="%StepLeftCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.left">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+ARROW_LEFT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.left"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%StepRightCmd.name"
+            description="%StepRightCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.right">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+ARROW_RIGHT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.right"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ScrollBackwardCmd.name"
+            description="%ScrollBackwardCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.scroll_backward">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+PAGE_UP"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.scroll_backward"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ScrollForwardCmd.name"
+            description="%ScrollForward.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.scroll_forward">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+PAGE_DOWN"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.scroll_forward"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ScrollToTopCmd.name"
+            description="%ScrollToTopCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.scroll_top">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+HOME"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.scroll_top"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ScrollToBottomCmd.name"
+            description="%ScrollToBottomCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.scroll_bottom">
+      </command>
+      <keyBinding
+            string="Ctrl+Alt+END"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.scroll_bottom"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%GotoColumnCmd.name"
+            description="%GotoColumnCmd.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.goto_column">
+      </command>
+      <keyBinding
+            string="Ctrl+O"
+            scope="com.m.madmin.ui.queryResultScope"
+            command="com.m.madmin.ui.goto_column"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%InsertRow.name"
+            description="%InsertRow.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.insert_row">
+      </command>
+      <keyBinding
+            string="INSERT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.insert_row"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%InsertRowDefaults.name"
+            description="%InsertRowDefaults.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.insert_row_defaults">
+      </command>
+      <keyBinding
+            string="Alt+INSERT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.insert_row_defaults"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%CopyAsInsert.name"
+            description="%CopyAsInsert.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.copy_as_insert">
+      </command>
+      <keyBinding
+            string="Ctrl+Shift+INSERT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.copy_as_insert"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%PasteRow.name"
+            description="%PasteRow.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.paste_row">
+      </command>
+      <keyBinding
+            string="Alt+Shift+INSERT"
+            scope="madmin.ui.tableScope"
+            command="com.m.madmin.ui.paste_row"
+            configuration="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </keyBinding>
+      <command
+            name="%ReloadRefs.name"
+            description="%ReloadRefs.description"
+            category="com.m.madmin.ui.category"
+            id="com.m.madmin.ui.reloadrefs">
+      </command>
+      -->
+<!-- Commands end -->
+<!-- added by dream -->
+<!--
+    </extension>
+-->
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.m.madmin.ui.editor.table.TableEditor"
+            contributorClass="com.m.madmin.ui.editor.table.TableEditorActionContributor"
+            default="true"
+            extensions="com.m.madmin.core.ITable"
+            icon="icons/full/ctool16/edit_ed.gif"
+            id="com.m.madmin.ui.editor.table.TableEditor"
+            name="%TableEditor.name"/>
+   </extension>
+   <extension
+         id="help"
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="SQL ActionSet"
+            id="com.m.madmin.ui.action.workbenchActionSet"
+            label="Action"
+            visible="true">
+         <menu
+               id="com.m.madmin.ui.action.workbenchMenu"
+               label="Action"
+               path="additions">
+            <separator name="additions"/>
+            <groupMarker name="content"/>
+         </menu>
+      </actionSet>
+   </extension>
+   
+    <extension
+            point="org.eclipse.ui.splashHandlers">
+    <splashHandler
+          class="madmin.ui.splashHandlers.InteractiveSplashHandler"
+          id="madmin.ui.splashHandlers.interactive">
+    </splashHandler>
+    <splashHandlerProductBinding
+          productId="madmin.ui.product_5_1_0"
+          splashId="madmin.ui.splashHandlers.interactive">
+    </splashHandlerProductBinding>
+    </extension>
+ <extension
+        id="product_5_1_0"
+       point="org.eclipse.core.runtime.products">
+    <product
+          application="madmin.ui.MAdminApplication"
+          name="mAdmin">
+       <property
+             name="windowImages"
+             value="icons/developer_perspective.gif">
+       </property>
+       <property
+             name="aboutText"
+             value="%aboutText">
+       </property>
+       <property
+             name="aboutImage"
+             value="icons/Tibero_RDBMS_About.gif">
+       </property>
+       <property
+             name="appName"
+             value="mAdmin">
+       </property>
+    </product>
+ </extension>
+ <extension
+        point="org.eclipse.ui.menus">
+    <menuContribution
+          allPopups="false"
+          locationURI="toolbar:org.eclipse.ui.main.toolbar">
+       <toolbar
+             id="madmin.ui.toolbar.connect"
+             label="Connect">
+       </toolbar>
+       <toolbar
+             id="madmin.ui.toolbar.transaction"
+             label="Transaction">
+       </toolbar>
+       <toolbar
+             id="madmin.ui.toolbar.file"
+             label="File">
+       </toolbar>
+       <toolbar
+             id="madmin.ui.toolbar.database"
+             label="Database">
+       </toolbar>
+       <toolbar
+             id="madmin.ui.toolbar.dba"
+             label="DBA">
+       </toolbar>
+       <toolbar
+             id="madmin.ui.toolbar.tools"
+             label="Tools">
+       </toolbar>
+    </menuContribution>
+ </extension>
+ 
+ 
+</plugin>

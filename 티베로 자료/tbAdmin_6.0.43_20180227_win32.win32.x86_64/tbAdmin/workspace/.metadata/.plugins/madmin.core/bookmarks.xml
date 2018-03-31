@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bookmarks>
+<config alias="junhukang" charset="MSWIN949" database="0" defaultSchema="" ip="localhost" lastconnect="2018-03-30 20:35:23" logintimeout="0" makedate="2018-03-30 20:08:53" name="sys@localhost:8629:tibero junhukang TIBERO_6X" port="8629" readtimeout="0" role="" sid="tibero" url="jdbc:internal:thin:@localhost:8629:tibero" user="sys"/>
+<config alias="junhukang" charset="MSWIN949" database="0" defaultSchema="" ip="localhost" lastconnect="2018-03-31 11:10:20" logintimeout="0" makedate="" name="HR@localhost:8629:tibero junhukang TIBERO_6X" port="8629" readtimeout="0" role="" sid="tibero" url="jdbc:internal:thin:@localhost:8629:tibero" user="HR"/>
+</bookmarks>
