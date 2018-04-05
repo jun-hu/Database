@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Generated-from: 1522386338900;type=2
+Generated-from: 1522386338000;type=2
 Bundle-ManifestVersion: 2
 Bundle-Name: madmin.ui
 Bundle-SymbolicName: madmin.ui; singleton:=true

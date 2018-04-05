@@ -1,0 +1,20 @@
+SELECT SYSDATE as DATA
+FROM employees;
+
+SELECT employee_id, last_name, salary, salary*1.15 as "New Salary"
+FROM employees;
+
+SELECT last_name as name, length(last_name) as name_length
+FROM employees
+where SUBSTR(last_name,1,1) in ('A','J','M')
+order by last_name ASC;
+
+SELECT last_name, Round((SYSDATE-hire_date)/30) as MONTHS_WORKED
+FROM employees
+order by (SYSDATE-hire_date)/30;
+
+
+
+lpad(salary, 10, "$")
+lpad('*', salary/1000+1, '*')
+

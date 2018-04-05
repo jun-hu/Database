@@ -1,0 +1,271 @@
+-- Import character set: MSWIN949
+-- the entire database: Thu Apr 05 15:23:17 KST 2018
+-- Import national character set: UTF-16
+--   importing tablespace "SYSTEM"
+--   importing tablespace "USR"
+--   importing tablespace "SYSSUB"
+--   importing tablespace "EXAMPLE"
+--   importing tablespace "USERS"
+--   importing tablespace "TBS01"
+--   importing tablespace "TBS02"
+--   importing role "CONNECT"
+--   importing role "RESOURCE"
+--   importing role "SELECT_CATALOG_ROLE"
+--   importing role "DBA"
+--   importing role "HS_ADMIN_ROLE"
+--   importing role "PLUSTRACE"
+--   importing role "PUBLIC"
+--   importing schema "HR"
+--   importing schema "OUTLN"
+--   importing schema "TEST"
+--   importing schema "TIBERO"
+--   importing schema "TIBERO1"
+--   importing system privilege CREATE SESSION
+--   importing system privilege ADMINISTER DATABASE TRIGGER
+--   importing system privilege ALTER ANY INDEX
+--   importing system privilege ALTER ANY INDEXTYPE
+--   importing system privilege ALTER ANY MATERIALIZED VIEW
+--   importing system privilege ALTER ANY OPERATOR
+--   importing system privilege ALTER ANY PROCEDURE
+--   importing system privilege ALTER ANY ROLE
+--   importing system privilege ALTER ANY SEQUENCE
+--   importing system privilege ALTER ANY SQL TRANSLATION PROFILE
+--   importing system privilege ALTER ANY TABLE
+--   importing system privilege ALTER ANY TRIGGER
+--   importing system privilege ALTER ANY TYPE
+--   importing system privilege ALTER DATABASE
+--   importing system privilege ALTER PROFILE
+--   importing system privilege ALTER RMGR
+--   importing system privilege ALTER ROLLBACK SEGMENT
+--   importing system privilege ALTER SESSION
+--   importing system privilege ALTER SYSTEM
+--   importing system privilege ALTER TABLESPACE
+--   importing system privilege ALTER USER
+--   importing system privilege ANALYZE ANY
+--   importing system privilege AUDIT ANY
+--   importing system privilege AUDIT SYSTEM
+--   importing system privilege COMMENT ANY TABLE
+--   importing system privilege CREATE ANY CONTEXT
+--   importing system privilege CREATE ANY DATABASE LINK
+--   importing system privilege CREATE ANY DIRECTORY
+--   importing system privilege CREATE ANY INDEX
+--   importing system privilege CREATE ANY INDEXTYPE
+--   importing system privilege CREATE ANY LIBRARY
+--   importing system privilege CREATE ANY MATERIALIZED VIEW
+--   importing system privilege CREATE ANY OPERATOR
+--   importing system privilege CREATE ANY PROCEDURE
+--   importing system privilege CREATE ANY SEQUENCE
+--   importing system privilege CREATE ANY SQL TRANSLATION PROFILE
+--   importing system privilege CREATE ANY SYNONYM
+--   importing system privilege CREATE ANY TABLE
+--   importing system privilege CREATE ANY TRIGGER
+--   importing system privilege CREATE ANY TYPE
+--   importing system privilege CREATE ANY VIEW
+--   importing system privilege CREATE BTIP
+--   importing system privilege CREATE DATABASE LINK
+--   importing system privilege CREATE INDEXTYPE
+--   importing system privilege CREATE LIBRARY
+--   importing system privilege CREATE MATERIALIZED VIEW
+--   importing system privilege CREATE OPERATOR
+--   importing system privilege CREATE PROCEDURE
+--   importing system privilege CREATE PROFILE
+--   importing system privilege CREATE PUBLIC DATABASE LINK
+--   importing system privilege CREATE PUBLIC SYNONYM
+--   importing system privilege CREATE ROLE
+--   importing system privilege CREATE SEQUENCE
+--   importing system privilege CREATE SESSION
+--   importing system privilege CREATE SQL TRANSLATION PROFILE
+--   importing system privilege CREATE SYNONYM
+--   importing system privilege CREATE TABLE
+--   importing system privilege CREATE TABLESPACE
+--   importing system privilege CREATE TIP
+--   importing system privilege CREATE TRIGGER
+--   importing system privilege CREATE TYPE
+--   importing system privilege CREATE USER
+--   importing system privilege CREATE VIEW
+--   importing system privilege DELETE ANY TABLE
+--   importing system privilege DEQUEUE ANY QUEUE
+--   importing system privilege DROP ANY CONTEXT
+--   importing system privilege DROP ANY DATABASE LINK
+--   importing system privilege DROP ANY DIRECTORY
+--   importing system privilege DROP ANY INDEX
+--   importing system privilege DROP ANY INDEXTYPE
+--   importing system privilege DROP ANY LIBRARY
+--   importing system privilege DROP ANY MATERIALIZED VIEW
+--   importing system privilege DROP ANY OPERATOR
+--   importing system privilege DROP ANY PROCEDURE
+--   importing system privilege DROP ANY ROLE
+--   importing system privilege DROP ANY SEQUENCE
+--   importing system privilege DROP ANY SQL TRANSLATION PROFILE
+--   importing system privilege DROP ANY SYNONYM
+--   importing system privilege DROP ANY TABLE
+--   importing system privilege DROP ANY TRIGGER
+--   importing system privilege DROP ANY TYPE
+--   importing system privilege DROP ANY VIEW
+--   importing system privilege DROP PROFILE
+--   importing system privilege DROP PUBLIC DATABASE LINK
+--   importing system privilege DROP PUBLIC SYNONYM
+--   importing system privilege DROP TABLESPACE
+--   importing system privilege DROP USER
+--   importing system privilege ENQUEUE ANY QUEUE
+--   importing system privilege EXECUTE ANY INDEXTYPE
+--   importing system privilege EXECUTE ANY LIBRARY
+--   importing system privilege EXECUTE ANY OPERATOR
+--   importing system privilege EXECUTE ANY PROCEDURE
+--   importing system privilege FLASHBACK ANY TABLE
+--   importing system privilege GRANT ANY OBJECT PRIVILEGE
+--   importing system privilege GRANT ANY PRIVILEGE
+--   importing system privilege GRANT ANY ROLE
+--   importing system privilege GRANT DEFAULT ROLE
+--   importing system privilege INSERT ANY TABLE
+--   importing system privilege LOCK ANY TABLE
+--   importing system privilege MANAGE ANY QUEUE
+--   importing system privilege PLUSTRACE
+--   importing system privilege SELECT ANY DICTIONARY
+--   importing system privilege SELECT ANY SEQUENCE
+--   importing system privilege SELECT ANY TABLE
+--   importing system privilege SYSDBA
+--   importing system privilege UPDATE ANY TABLE
+--   importing system privilege ALTER SESSION
+--   importing system privilege CONNECT
+--   importing system privilege CREATE DATABASE LINK
+--   importing system privilege CREATE SEQUENCE
+--   importing system privilege CREATE SESSION
+--   importing system privilege CREATE SYNONYM
+--   importing system privilege CREATE VIEW
+--   importing system privilege RESOURCE
+--   importing system privilege CREATE SESSION
+--   importing system privilege CREATE TABLE
+--   importing system privilege EXECUTE ANY PROCEDURE
+--   importing system privilege RESOURCE
+--   importing system privilege CREATE PROCEDURE
+--   importing system privilege CREATE SEQUENCE
+--   importing system privilege CREATE TABLE
+--   importing system privilege CREATE TRIGGER
+--   importing system privilege SELECT ANY DICTIONARY
+--   importing system privilege CONNECT
+--   importing system privilege DBA
+--   importing system privilege RESOURCE
+--   importing system privilege CONNECT
+--   importing system privilege DBA
+--   importing system privilege RESOURCE
+--   importing schema: "HR"
+--     importing sequence "DEPARTMENTS_SEQ"
+--     importing sequence "EMPLOYEES_SEQ"
+--     importing sequence "LOCATIONS_SEQ"
+--     importing table "COUNTRIES"
+--     importing table "DEPARTMENTS"
+--       [0] HR.COUNTRIES                                      25/25 rows imported.
+--     importing table "EMPLOYEES"
+--       [0] HR.DEPARTMENTS                                    27/27 rows imported.
+--     importing table "JOBS"
+--       [0] HR.EMPLOYEES                                    107/107 rows imported.
+--     importing table "JOB_HISTORY"
+--       [0] HR.JOBS                                           19/19 rows imported.
+--     importing table "LOCATIONS"
+--       [0] HR.JOB_HISTORY                                    10/10 rows imported.
+--     importing table "REGIONS"
+--       [0] HR.LOCATIONS                                      23/23 rows imported.
+--       [0] HR.REGIONS                                          4/4 rows imported.
+--     importing index "DEPT_ID_PK"
+--     importing index "DEPT_LOCATION_IX"
+--     importing index "EMP_DEPARTMENT_IX"
+--     importing index "EMP_EMAIL_UK"
+--     importing index "EMP_EMP_ID_PK"
+--     importing index "EMP_JOB_IX"
+--     importing index "EMP_MANAGER_IX"
+--     importing index "EMP_NAME_IX"
+--     importing index "JHIST_DEPARTMENT_IX"
+--     importing index "JHIST_EMPLOYEE_IX"
+--     importing index "JHIST_EMP_ID_ST_DATE_PK"
+--     importing index "JHIST_JOB_IX"
+--     importing index "JOB_ID_PK"
+--     importing index "LOC_CITY_IX"
+--     importing index "LOC_COUNTRY_IX"
+--     importing index "LOC_ID_PK"
+--     importing index "LOC_STATE_PROVINCE_IX"
+--     importing index "REG_ID_PK"
+--   importing constraint "DEPT_ID_PK"
+--   importing constraint "EMP_EMAIL_UK"
+--   importing constraint "EMP_EMP_ID_PK"
+--   importing constraint "EMP_SALARY_MIN"
+--   importing constraint "HR_CON33500812"
+--   importing constraint "HR_CON33600421"
+--   importing constraint "HR_CON33700920"
+--   importing constraint "HR_CON33800444"
+--   importing constraint "HR_CON33900011"
+--   importing constraint "HR_CON34000010"
+--   importing constraint "HR_CON34100548"
+--   importing constraint "HR_CON34200072"
+--   importing constraint "HR_CON34300101"
+--   importing constraint "HR_CON34400125"
+--   importing constraint "HR_CON34500159"
+--   importing constraint "HR_CON34600684"
+--   importing constraint "HR_CON34700205"
+--   importing constraint "HR_CON34800736"
+--   importing constraint "HR_CON34900260"
+--   importing constraint "HR_CON35000789"
+--   importing constraint "JHIST_DATE_INTERVAL"
+--   importing constraint "JHIST_EMP_ID_ST_DATE_PK"
+--   importing constraint "JOB_ID_PK"
+--   importing constraint "LOC_ID_PK"
+--   importing constraint "REG_ID_PK"
+--     importing view "EMP_DETAILS_VIEW"
+--   importing schema: "OUTLN"
+--     importing table "OL$"
+--     importing table "OL$HINTS"
+--     importing index "OL$NAME"
+--   importing schema: "TEST"
+--     importing sequence "DEPARTMENTS_SEQ"
+--     importing sequence "EMPLOYEES_SEQ"
+--     importing sequence "LOCATIONS_SEQ"
+--     importing table "COUNTRIES"
+--       [0] TEST.COUNTRIES                                    25/25 rows imported.
+--     importing view "EMP_DETAILS_VIEW"
+--   importing schema: "TIBERO"
+--     importing sequence "DEPARTMENTS_SEQ"
+--     importing sequence "EMPLOYEES_SEQ"
+--     importing sequence "LOCATIONS_SEQ"
+--     importing table "COUNTRIES"
+--     importing table "EMP"
+--       [0] TIBERO.COUNTRIES                                  25/25 rows imported.
+--     importing table "T"
+--       [0] TIBERO.EMP                                          4/4 rows imported.
+--       [0] TIBERO.T                                1000000/1000000 rows imported.
+--     importing index "EMP_PK"
+--   importing constraint "EMP_PK"
+--     importing view "EMP_DETAILS_VIEW"
+--   importing schema: "TIBERO1"
+--     importing table "COUNTRIES"
+--   importing schema: "HR"
+--       [0] TIBERO1.COUNTRIES                                 25/25 rows imported.
+--   importing constraint "COUNTR_REG_FK"
+--   importing constraint "DEPT_LOC_FK"
+--   importing constraint "DEPT_MGR_FK"
+--   importing constraint "EMP_DEPT_FK"
+--   importing constraint "EMP_JOB_FK"
+--   importing constraint "EMP_MANAGER_FK"
+--   importing constraint "JHIST_DEPT_FK"
+--   importing constraint "JHIST_EMP_FK"
+--   importing constraint "JHIST_JOB_FK"
+--   importing constraint "LOC_C_ID_FK"
+--   importing procedure ADD_JOB_HISTORY
+--   importing procedure SECURE_DML
+--   importing schema: "TEST"
+--   importing procedure ADD_JOB_HISTORY
+--   importing procedure SECURE_DML
+--   importing schema: "TIBERO"
+--   importing procedure ADD_JOB_HISTORY
+--   importing procedure DOWN_SALARY
+--   importing procedure SECURE_DML
+--   importing procedure TESTPROC
+--   importing procedure UP_SALARY
+--   importing type PERSONOBJ
+--   importing schema: "HR"
+--   importing trigger SECURE_EMPLOYEES
+--   importing trigger UPDATE_JOB_HISTORY
+--   importing schema: "PLUSTRACE"
+--   importing object privilege SELECT
+--   importing object privilege SELECT
+--   importing synonym SELECT
+-- Import completed successfully: Thu Apr 05 15:24:15 KST 2018

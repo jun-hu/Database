@@ -8,3 +8,6 @@ FROM employees;
 
 SELECT first_name||' '||last_name||', '||job_id AS "Employee and Title"
 FROM employees
+
+substr(last_name, 1, 1) in ('a','b','c')
+라스트네임에 첫번째 문자가 
