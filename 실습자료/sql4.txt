@@ -1,0 +1,40 @@
+select e.last_name, e.department_id, d.department_name
+from employees e, departments d
+where e.department_id=d.department_id;
+
+select e.job_id, d.location_id
+from employees e, departments d
+where d.department_id=80;
+
+select e.last_name, d.department_name, d.location_id,l.city
+from employees e, departments d, locations l
+where e.department_id=d.department_id 
+and d.location_id=l.location_id
+and e.commission_pct is not null;
+
+select e.last_name, d.department_name
+from employees e, departments d
+where e.last_name like '%a%'
+and e.department_id=d.department_id;
+
+select e.last_name,e.job_id,e.department_id,d.department_name
+from employees e, departments d, locations l
+where l.city like 'Toronto'
+and e.department_id=d.department_id
+and d.location_id=l.location_id;
+
+select e.last_name Employee, e.employee_id, e2.last_name, e2.employee_id
+from employees e, employees e2
+where e.manager_id=e2.employee_id;
+--------------------
+select e.last_name, e.hire_date
+from employees e
+where 
+(select hire_date from employees where last_name 
+like 'Davies') <e.hire_date;
+
+select e.last_name, e.hire_date, man.last_name, man.hire_date
+from employees e, employees man
+where 
+e.manager_id=man.employee_id
+and e.hire_date<man.hire_date
