@@ -1,0 +1,18 @@
+DBExecuteSQL((SQLCHAR*)"drop TABLE Jobs_copy");
+	DBExecuteSQL((SQLCHAR*)"CREATE TABLE Jobs_copy AS (SELECT * FROM Jobs)");
+	
+	if (DBExecuteSQL((SQLCHAR*)"insert into jobs_copy values('CP_EN','Computer Engineering',20000,60000)") == false)
+		cout << "insert fail!" << endl;
+	else cout << "insert success" << endl;
+
+	if (DBExecuteSQL((SQLCHAR*)"delete from jobs_copy where job_title='Computer Engineering'") == false)
+		cout << "delete fail!" << endl;
+	else cout << "delete success" << endl;
+
+	if (DBExecuteSQL((SQLCHAR*)"update jobs_copy set MAX_SALARY=MAX_SALARY+500 where JOB_TITLE like '%Marketing%'") == false)
+		cout << "update fail!" << endl;
+	else cout << "update success" << endl;
+
+	if (DBExecuteSQL((SQLCHAR*)"select employee_id,first_name,last_name from employees") == false)
+		cout << "select fail" << endl;
+	PrintResult();

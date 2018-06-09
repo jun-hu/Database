@@ -1,0 +1,5 @@
+DBExecuteSQL((SQLCHAR*)"drop table employees_copy,departments_copy,countries_copy,locations_copy");
+DBExecuteSQL((SQLCHAR*)"create table employees_copy as select * from EMPLOYEES");
+DBExecuteSQL((SQLCHAR*)"create table departments_copy as select * from departments");
+DBExecuteSQL((SQLCHAR*)"create table countries_copy as select * from countries");
+DBExecuteSQL((SQLCHAR*)"create table locations_copy as select * from locations");

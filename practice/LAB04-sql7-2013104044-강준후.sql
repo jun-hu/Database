@@ -1,0 +1,38 @@
+create table cpy_emp as 
+select *
+from employees;
+
+desc cpy_emp;
+desc employees;
+
+insert into cpy_emp
+values (300,'Ralph', 'Patel','Rpatel',NULL,SYSDATE ,'SA_MAN',NULL,NULL,NULL,NULL);
+
+insert into cpy_emp(employee_id,first_name,last_name,email,hire_date,job_id)
+values (301,'Dancs','Betty','Bdancs',SYSDATE,'SA_REP');
+
+update cpy_emp
+set last_name='Drexler'
+where employee_id=301;
+
+update cpy_emp
+set    phone_number = (select phone_number
+                       from   employees
+                       where  last_name = 'Jones'),
+       salary       = (select salary
+                       from   employees
+                       where  last_name = 'Jones'),
+       manager_id   = (select manager_id
+                       from   employees
+                       where  last_name = 'Jones'),
+       department_id = (select department_id
+                        from   employees
+                        where  last_name = 'Jones')
+where employee_id =300 or employee_id =301; 
+
+update cpy_emp
+set    salary       = 3000 
+where salary<3000;
+
+delete from cpy_emp
+where first_name='Dancs' and last_name='Drexler';
